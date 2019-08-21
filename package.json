@@ -1,0 +1,17 @@
+{
+  "name": "vedantu",
+  "version": "1.0.0",
+  "description": "Sample API app",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "~1.4.2",
+    "express": "~4.5.1",
+    "mongoose": "~4.4",
+    "underscore": "^1.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shubhankit",
+  "license": "ISC"
+}
