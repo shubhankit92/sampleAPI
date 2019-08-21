@@ -53,6 +53,10 @@ function getOrderList(result, res) {
 
 async function isInventoryQuantityValid(inventoryList){
 	let isValid = true;
+	//Start a session to avoid race condition.(only works for mongo replica settings)
+	// const session = await Inventory.startSession();
+  // session.startTransaction();
+  // const opts = { session };
 	for(let index in inventoryList){
 		let inventoryId = inventoryList[index].inventoryId;
 		let inventoryDetails = await Inventory.findOne({
@@ -75,6 +79,12 @@ async function isInventoryQuantityValid(inventoryList){
 			});
 		}
 	}
+	// Commit the session and close it
+	// await session.commitTransaction();
+  // session.endSession();
+  // If error
+  // await session.abortTransaction();
+  // session.endSession();
 	return isValid;
 }
 
